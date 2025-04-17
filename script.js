@@ -3,6 +3,13 @@ const weatherForm = document.getElementById('weatherForm');
 const cityInput = document.getElementById('cityInput');
 const weatherResult = document.getElementById('weatherResult');
 const resetButton = document.getElementById('resetButton');
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
 
 weatherForm.addEventListener('submit', async (event) => {
     event.preventDefault();

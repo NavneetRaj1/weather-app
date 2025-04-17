@@ -1,30 +1,159 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body {
-    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e'); /* Example weather image */
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(90deg, #007BFF, #0056b3);
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo-icon {
+    font-size: 28px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 1000;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.nav-menu {
+    display: flex;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #f0f0f0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: #f0f0f0;
+}
+
+/* Main Content */
+main {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #333;
+    padding: 20px 0;
 }
+
 .container {
-    background-color: rgba(255, 255, 255, 0.675); /* Slightly transparent white */
+    background-color: rgba(255, 255, 255, 0.85);
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     text-align: center;
     max-width: 500px;
     width: 90%;
-    transition: transform 0.3s ease; /* Smooth hover effect */
+    transition: transform 0.3s ease;
 }
+
 .container:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
+    transform: translateY(-5px);
 }
+
 input[type="text"] {
     padding: 12px;
     width: 70%;
@@ -36,24 +165,23 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-    border-color: #007BFF; /* Blue outline on focus */
-    
+    border-color: #007BFF;
 }
+
 button {
     padding: 12px 24px;
-    background-color: #007BFF; /* Professional blue */
+    background-color: #007BFF;
     color: white;
     border: none;
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
-    margin: 5px; /* Space between buttons */
-    transition: background-color 0.3s ease;
+    margin: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button[type="submit"] {
-    background-color: #007BFF; /* Blue for submit */
-    color: white;
+    background-color: #007BFF;
 }
 
 button[type="submit"]:hover {
@@ -61,19 +189,17 @@ button[type="submit"]:hover {
 }
 
 #resetButton {
-    background-color: #dc3545; /* Red for reset */
-    color: white;
+    background-color: #dc3545;
 }
 
 #resetButton:hover {
-    background-color: #b02a37; /* Darker red on hover */
+    background-color: #b02a37;
 }
 
 button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    background: linear-gradient(135deg, #7886c7, #7f38c6); /* Soft purple-blue gradient */
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
+
 #weatherResult {
     margin-top: 20px;
     padding: 15px;
@@ -97,17 +223,72 @@ button:hover {
 
 #weatherResult p {
     margin: 8px 0;
-    color: #a83d3d;
+    color: #555;
 }
 
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
 
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
+.footer-links a {
+    color: #007BFF;
+    text-decoration: none;
+    margin: 0 10px;
+}
 
+.footer-links a:hover {
+    text-decoration: underline;
+}
 
-/* Responsive part */
+footer p {
+    margin: 5px 0;
+}
 
-
+/* Responsive Design */
 @media (max-width: 600px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: linear-gradient(90deg, #007BFF, #0056b3);
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        transform: translateY(-10px);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .nav-menu.active {
+        display: block;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
     .container {
         padding: 20px;
         width: 95%;
@@ -129,5 +310,9 @@ button:hover {
 
     #weatherResult h3 {
         font-size: 18px;
+    }
+
+    .footer-container {
+        font-size: 14px;
     }
 }
