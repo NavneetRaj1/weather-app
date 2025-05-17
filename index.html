@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>WeatherPro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,45 +13,28 @@
                 <span class="logo-icon">☀️</span>
                 <h1>WeatherPro</h1>
             </div>
-            <nav>
-                <button class="hamburger" id="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-                <div class="nav-menu" id="nav-menu">
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </nav>
         </div>
     </header>
+
     <main>
-        <div class="container">
-            <h2>Weather Forecasting</h2>
-            <form id="weatherForm">
-                <input type="text" id="cityInput" placeholder="Enter city name" required>
-                <button type="submit">Get Weather</button>
-                <button type="button" id="resetButton">Reset</button>
-            </form>
-            <div id="weatherResult">
-                <!-- Weather data will be displayed here -->
+        <div class="main-container">
+            <div class="weather-container" id="weatherContainer">
+                <h1>Weather Forecasting</h1>
+                <div class="search-section">
+                    <input type="text" id="cityInput" placeholder="Weather in...">
+                    <button type="submit" id="searchButton">🔍</button>
+                    <button type="button" id="resetButton">⟳</button>
+                </div>
+                <div id="weatherResult">
+                    <div class="placeholder">
+                        <span class="placeholder-icon">🔍</span>
+                        <p>Search for a city to see the weather!</p>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
-    <footer>
-        <div class="footer-container">
-            <p>© 2025 WeatherPro. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#privacy">Privacy Policy</a> | 
-                <a href="#terms">Terms of Service</a>
-            </div>
-            <p>Contact: <a href="mailto:support@weatherpro.com">support@weatherpro.com</a></p>
-        </div>
-    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
